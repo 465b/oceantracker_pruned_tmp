@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>AgeDecay &#8212; OceanTracker Beta 0.4 documentation</title>
+    <title>ConstantParticleProperty &#8212; OceanTracker Beta 0.4 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
@@ -16,8 +16,8 @@
     <script src="../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="ConstantParticleProperty" href="ConstantParticleProperty.html" />
-    <link rel="prev" title="particle_properties" href="particle_properties_toc.html" />
+    <link rel="next" title="DistanceTravelled" href="DistanceTravelled.html" />
+    <link rel="prev" title="AgeDecay" href="AgeDecay.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -75,8 +75,8 @@
   <li><a href="../users_guide.html">Users guide</a><ul>
   <li><a href="parameter_ref_toc.html">Parameter details</a><ul>
   <li><a href="particle_properties_toc.html">particle_properties</a><ul>
-      <li>Previous: <a href="particle_properties_toc.html" title="previous chapter">particle_properties</a></li>
-      <li>Next: <a href="ConstantParticleProperty.html" title="next chapter">ConstantParticleProperty</a></li>
+      <li>Previous: <a href="AgeDecay.html" title="previous chapter">AgeDecay</a></li>
+      <li>Next: <a href="DistanceTravelled.html" title="next chapter">DistanceTravelled</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -101,12 +101,12 @@
 
           <div class="body" role="main">
             
-  <section id="agedecay">
-<h1>AgeDecay<a class="headerlink" href="#agedecay" title="Permalink to this heading">¶</a></h1>
-<p><strong>Description:</strong> Exponentially decaying particle property based on age.</p>
-<p><strong>class_name:</strong> oceantracker.particle_properties.age_decay.AgeDecay</p>
-<p><strong>File:</strong> oceantracker/particle_properties/age_decay.py</p>
-<p><strong>Inheritance:</strong> _BasePropertyInfo&gt; ParticleProperty&gt; AgeDecay</p>
+  <section id="constantparticleproperty">
+<h1>ConstantParticleProperty<a class="headerlink" href="#constantparticleproperty" title="Permalink to this heading">¶</a></h1>
+<p><strong>Description:</strong> Constant particle property which does not vary in time, which can be used to calculate spatial and temporal statistics from particle properties</p>
+<p><strong>class_name:</strong> oceantracker.particle_properties.constant_part_prop.ConstantParticleProperty</p>
+<p><strong>File:</strong> oceantracker/particle_properties/constant_part_prop.py</p>
+<p><strong>Inheritance:</strong> _BasePropertyInfo&gt; ParticleProperty&gt; ConstantParticleProperty</p>
 <section id="parameters">
 <h2>Parameters:<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h2>
 <blockquote>
@@ -115,13 +115,6 @@
 <dt><code class="docutils literal notranslate"><span class="pre">class_name</span></code><span class="classifier"><code class="docutils literal notranslate"><span class="pre">&lt;class</span> <span class="pre">'str'&gt;</span></code>   <em>&lt;optional&gt;</em></span></dt><dd><p>Description: Class name as string A.B.C, used to import this class from python path</p>
 <ul class="simple">
 <li><p>default: <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">decay_time_scale</span></code><span class="classifier"><code class="docutils literal notranslate"><span class="pre">&lt;class</span> <span class="pre">'float'&gt;</span></code>   <em>&lt;optional&gt;</em></span></dt><dd><ul class="simple">
-<li><p>default: <code class="docutils literal notranslate"><span class="pre">86400.0</span></code></p></li>
 </ul>
 </dd>
 </dl>
@@ -148,9 +141,8 @@
 </dl>
 </li>
 <li><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">initial_value</span></code><span class="classifier"><code class="docutils literal notranslate"><span class="pre">&lt;class</span> <span class="pre">'float'&gt;</span></code>   <em>&lt;optional&gt;</em></span></dt><dd><p>Description: Particle property at the time of release</p>
-<ul class="simple">
-<li><p>default: <code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></li>
+<dt><code class="docutils literal notranslate"><span class="pre">initial_value</span></code><span class="classifier"><code class="docutils literal notranslate"><span class="pre">&lt;class</span> <span class="pre">'float'&gt;</span></code>   <em>&lt;optional&gt;</em></span></dt><dd><ul class="simple">
+<li><p>default: <code class="docutils literal notranslate"><span class="pre">0.0</span></code></p></li>
 </ul>
 </dd>
 </dl>
@@ -204,6 +196,23 @@
 </dl>
 </li>
 <li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">value</span></code><span class="classifier"><code class="docutils literal notranslate"><span class="pre">&lt;class</span> <span class="pre">'float'&gt;</span></code>   <em>&lt;optional&gt;</em></span></dt><dd><p>Description: Value of the particle property for each particle which does not vary with time</p>
+<ul class="simple">
+<li><p>default: <code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">variance</span></code><span class="classifier"><code class="docutils literal notranslate"><span class="pre">&lt;class</span> <span class="pre">'float'&gt;</span></code>   <em>&lt;optional&gt;</em></span></dt><dd><p>Description: Optional variance of the value given to each individual particle, which then does not vary in time, drawn from normal distribution, with mean “value”  and given variance</p>
+<ul class="simple">
+<li><p>default: <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+<li><p>min: <code class="docutils literal notranslate"><span class="pre">0.0</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
 <dt><code class="docutils literal notranslate"><span class="pre">vector_dim</span></code><span class="classifier"><code class="docutils literal notranslate"><span class="pre">&lt;class</span> <span class="pre">'int'&gt;</span></code>   <em>&lt;optional&gt;</em></span></dt><dd><ul class="simple">
 <li><p>default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
 <li><p>min: <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
@@ -232,10 +241,10 @@
     <ul>
         <li>
           &larr;
-          <a href="particle_properties_toc.html" title="Previous document">particle_properties</a>
+          <a href="AgeDecay.html" title="Previous document">AgeDecay</a>
         </li>
         <li>
-          <a href="ConstantParticleProperty.html" title="Next document">ConstantParticleProperty</a>
+          <a href="DistanceTravelled.html" title="Next document">DistanceTravelled</a>
           &rarr;
         </li>
     </ul>
@@ -254,7 +263,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../../_sources/info/parameter_ref/AgeDecay.rst.txt"
+      <a href="../../_sources/info/parameter_ref/ConstantParticleProperty.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
