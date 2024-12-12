@@ -1,5 +1,4 @@
 import numpy as np
-from numba import njit
 from oceantracker.util.numba_util import njitOT
 from oceantracker.util import cord_transforms
 
